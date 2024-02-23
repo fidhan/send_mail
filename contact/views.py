@@ -19,7 +19,14 @@ def index(request):
                 'content': content
             })
 
-            send_mail('The contact form subject', 'This is the message', 'noreply@codewithstein.com', ['codewithtestein@gmail.com'], html_message=html)
+            # send_mail('The contact form subject', 'This is the message', 'noreply@codewithstein.com', ['codewithtestein@gmail.com'], html_message=html)
+            send_mail(
+    'The contact form subject',  # Subject
+    'This is the message',  # Plain text message
+    '',  # Sender's email
+    [''],  # Recipient(s)
+    html_message=html  # HTML message
+)
 
             return redirect('index')
     else:
@@ -28,3 +35,5 @@ def index(request):
     return render(request, 'contact/index.html', {
         'form': form
     })
+
+
